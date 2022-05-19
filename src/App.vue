@@ -1,11 +1,19 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <AppHeader />
+    <AppDisksList />
+  </div>
 </template>
 
 <script>
+import AppHeader from "./components/AppHeader.vue";
+import AppDisksList from "./components/AppDisksList.vue";
 export default {
   name: "App",
-  components: {},
+  components: {
+    AppHeader,
+    AppDisksList,
+  },
 };
 </script>
 
