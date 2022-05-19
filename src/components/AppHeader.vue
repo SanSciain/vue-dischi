@@ -18,7 +18,7 @@ export default {
 <style lang="scss" scoped>
 .ms-bg {
   background-color: #2e3a46;
-  padding: 1rem;
+  padding: 10px;
 
   .img-container {
     width: 50px;
