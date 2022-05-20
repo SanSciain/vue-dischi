@@ -1,5 +1,5 @@
 <template>
-  <div class="card ms-card-bg my-2">
+  <div class="card ms-card-bg">
     <img :src="disk.poster" class="card-img-top p-3" :alt="disk.title" />
     <div class="card-body text-center">
       <h5 class="card-title text-uppercase">{{ disk.title }}</h5>
@@ -22,7 +22,8 @@ export default {
 .ms-card-bg {
   background-color: #2e3a46;
   color: white;
-  width: calc(100% / 5.9);
+  // width: calc(100% / 5.9);
+  height: 100%;
 
   .ms-card-text {
     color: lightgray;

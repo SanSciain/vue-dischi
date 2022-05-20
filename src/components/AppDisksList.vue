@@ -5,7 +5,11 @@
       v-else
       class="container mx-auto my-0 d-flex flex-wrap p-3 justify-content-between"
     >
-      <AppDisk v-for="(item, index) in disks" :key="index" :disk="item" />
+      <div class="row row-cols-5 gx-4 gy-3">
+        <div v-for="(item, index) in disks" :key="index" class="col">
+          <AppDisk :disk="item" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
