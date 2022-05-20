@@ -5,8 +5,14 @@
       v-else
       class="container mx-auto my-0 d-flex flex-wrap p-3 justify-content-between"
     >
+      <div class="row my-3">
+        <div class="col">
+          <AppSelect @selectChange="disksSelected($event)" :disks="disks" />
+        </div>
+      </div>
+
       <div class="row row-cols-5 gx-4 gy-3">
-        <div v-for="(item, index) in disks" :key="index" class="col">
+        <div v-for="(item, index) in disksFiltered" :key="index" class="col">
           <AppDisk :disk="item" />
         </div>
       </div>
@@ -18,16 +24,20 @@
 import axios from "axios";
 import AppDisk from "./AppDisk.vue";
 import AppLoading from "./AppLoading.vue";
+import AppSelect from "./AppSelect.vue";
 export default {
   name: "AppDisksList",
   components: {
     AppDisk,
     AppLoading,
+    AppSelect,
   },
   data() {
     return {
       disks: [],
       flag: false,
+      genre: "",
+      disksFiltered: [],
     };
   },
   created() {
@@ -36,7 +46,17 @@ export default {
       .then((resp) => {
         this.disks = resp.data.response;
         this.flag = resp.data.success;
+        this.disksSelected(this.genre);
       });
+  },
+  methods: {
+    disksSelected(genreChoose) {
+      const disksMatching = this.disks.filter((item) => {
+        return item.genre.includes(genreChoose);
+      });
+      this.disksFiltered = disksMatching;
+      return disksMatching;
+    },
   },
 };
 </script>
