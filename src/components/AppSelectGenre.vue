@@ -2,7 +2,7 @@
   <select
     class="form-select"
     v-model="genre"
-    @change="$emit('selectChange', genre)"
+    @change="$emit('selectGenreChange', genre)"
     aria-label="Default select example"
   >
     <option value="">All</option>
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "AppSelect",
+  name: "AppSelectGenre",
   props: {
     disks: Array,
   },
